@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/matt/vfn/VFNPlatform/vfn_platform/vfn_platform/app/account'
 let g:netrw_dirhist_2='/home/matt/vfn/VFNPlatform/vfn_platform/vfn_platform/app/zone/static/js'
 let g:netrw_dirhist_3='/home/matt/vfn/VFNPlatform/vfn_platform/vfn_platform/app/zone/static/sass'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/home/matt/vfn/VFNPlatform/vfn_platform/vfn_platform/app/
 let g:netrw_dirhist_6='/home/matt/vfn/VFNPlatform/vfn_platform/vfn_platform/app/zone/view'
 let g:netrw_dirhist_7='/home/matt/vfn/VFNPlatform/vfn_platform/vfn_platform/app/account/view'
 let g:netrw_dirhist_8='/etc/nginx/sites-available'
+let g:netrw_dirhist_9='/Users/matt/.vim/ftplugin'

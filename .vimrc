@@ -12,6 +12,20 @@ highlight DiffChange cterm=none ctermfg=none ctermbg=Yellow gui=none guifg=bg gu
 highlight DiffText cterm=none ctermfg=none ctermbg=White gui=none guifg=bg guibg=White
 ":highlight! link DiffText MatchParen
 
+function! GetRunningOS()
+  if has("win32")
+    return "win"
+  endif
+  if has("unix")
+    if system('uname')=~'Darwin'
+      return "mac"
+    else
+      return "linux"
+    endif
+  endif
+endfunction
+let os=GetRunningOS()
+
 call pathogen#infect()
 
 " Default tabs
@@ -19,8 +33,10 @@ set softtabstop=4
 set shiftwidth=4
 set textwidth=79
 
-python from powerline.bindings.vim import source_plugin; source_plugin()
-source /home/matt/.local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/source_plugin.vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
 au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.json set softtabstop=4
