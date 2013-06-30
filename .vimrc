@@ -26,7 +26,10 @@ function! GetRunningOS()
 endfunction
 let os=GetRunningOS()
 
-call pathogen#infect()
+execute pathogen#infect()
+let g:syntastic_javascript_checker = 'jshint'
+"let g:syntastic_javascript_jslint_conf = "--white --undef --nomen --regexp --plusplus --bitwise --newcap --sloppy --vars --maxlen 80 --node"
+"let g:syntastic_javascript_jshint_conf = "~/.vim/jshint.conf.json"
 
 " Default tabs
 set softtabstop=4
@@ -116,15 +119,7 @@ set autoindent
 " Folding based on indentation: 
 set foldmethod=indent
 
-let g:jsbeautify = {'indent_size': 2, 'indent_char': ' '}
-let g:htmlbeautify = {'indent_size': 2, 'indent_char': ' ', 'max_char': 78, 'brace_style': 'expand', 'unformatted': ['a', 'sub', 'sup', 'b', 'i', 'u']}
-let g:cssbeautify = {'indent_size': 4, 'indent_char': ' '}
-let g:jsbeautify_engine = "node"
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-let g:syntastic_check_on_open=1
-let g:syntastic_javascript_checkers = ['jshint', 'jslint']
-let g:syntastic_javascript_jslint_conf = "--white --undef --nomen --regexp --plusplus --bitwise --newcap --sloppy --vars --maxlen 80 --node"
-let g:syntastic_javascript_jshint_conf = "~/.vim/jshint.conf.json"
