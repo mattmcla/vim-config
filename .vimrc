@@ -23,8 +23,8 @@ python from powerline.bindings.vim import source_plugin; source_plugin()
 source /home/matt/.local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/source_plugin.vim
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.json set softtabstop=4
-au BufRead,BufNewFile *.html,*.js,*.jade set softtabstop=2
+au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.json,*.jade set softtabstop=4
+au BufRead,BufNewFile *.html,*.js set softtabstop=2
 
 " What to use for an indent.
 " This will affect Ctrl-T and 'autoindent'.
@@ -32,7 +32,7 @@ au BufRead,BufNewFile *.html,*.js,*.jade set softtabstop=2
 " JavaScript: 4 spaces
 " HTML: 4 spaces
 " C: tabs (pre-existing files) or 4 spaces (new files)
-au BufRead,BufNewFile *.py,*pyw,*.json set shiftwidth=4
+au BufRead,BufNewFile *.py,*pyw,*.json,*.jade set shiftwidth=4
 au BufRead,BufNewFile *.html,*.js set shiftwidth=2
 au BufRead,BufNewFile *.py,*.pyw,*.json,*.js,*.html,*.jade set expandtab
 fu Select_c_style()
@@ -107,9 +107,7 @@ set foldmethod=indent
 "autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 "autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 "autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-autocmd FileType javascript nnoremap <leader>ff :%!js-beautify --good-stuff -k -s 2 -w 80 -j -q -B -f -<CR>
+autocmd FileType javascript nnoremap <leader>ff :%!js-beautify --good-stuff -k -s 2 -w 80 -j -q -f -<CR>
 
 let g:syntastic_check_on_open=1
-let g:syntastic_javascript_checkers = ['jshint', 'jslint']
-let g:syntastic_javascript_jslint_conf = "--white --undef --nomen --regexp --plusplus --bitwise --newcap --sloppy --vars --maxlen 80 --node"
-let g:syntastic_javascript_jshint_conf = "~/.vim/jshint.conf.json"
+let g:syntastic_javascript_jshint_conf = ".jshintrc"
