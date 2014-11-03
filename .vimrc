@@ -1,18 +1,14 @@
-filetype on
-filetype plugin on
-filetype plugin indent on
+syntax on
 set laststatus=2
-"set term=xterm-256color
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
 set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
 let mapleader=","
 vnoremap <Leader>s :sort<CR>
-"au FilterWritePre * if &diff | colorscheme default | endif
-"highlight DiffAdd cterm=none ctermfg=none ctermbg=Green gui=none guifg=bg guibg=Green
-"highlight DiffDelete cterm=none ctermfg=none ctermbg=Black gui=none guifg=bg guibg=Black
-"highlight DiffChange cterm=none ctermfg=none ctermbg=Yellow gui=none guifg=bg guibg=Yellow
-"highlight DiffText cterm=none ctermfg=none ctermbg=White gui=none guifg=bg guibg=White
-":highlight! link DiffText MatchParen
-
 function! GetRunningOS()
   if has("win32")
     return "win"
@@ -28,9 +24,10 @@ endfunction
 let os=GetRunningOS()
 
 execute pathogen#infect()
-let g:syntastic_javascript_checkers = ['jshint', 'jslint']
-let g:syntastic_javascript_jslint_conf = "--browser --undef --nomen --regexp --plusplus --bitwise --vars --maxlen 80 --indent 2"
-let g:syntastic_javascript_jshint_conf = "~/.vim/jshint.conf.json"
+
+" Scheme
+set background=dark
+colorscheme solarized
 
 " Default tabs
 set softtabstop=4
@@ -96,24 +93,6 @@ au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoption
 " C: yes
 au BufNewFile *.js,*.py,*.pyw,*.c,*.h set fileformat=unix
 
-
-" ----------------------------------------------------------------------------
-" The following section contains suggested settings.  While in no way required
-" to meet coding standards, they are helpful.
-
-" Set the default file encoding to UTF-8: 
-set encoding=utf-8
-
-" Puts a marker at the beginning of the file to differentiate between UTF and
-" UCS encoding (WARNING: can trick shells into thinking a text file is actually
-" a binary file when executing the text file): ``set bomb``
-
-" For full syntax highlighting:
-let python_highlight_all=1
-syntax on
-
-" Automatically indent based on file type:
-filetype indent on
 " Keep indentation level from previous line:
 set autoindent
 
