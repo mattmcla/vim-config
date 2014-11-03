@@ -2,14 +2,15 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 set laststatus=2
-set term=xterm-256color
+"set term=xterm-256color
+set t_Co=256
 let mapleader=","
 vnoremap <Leader>s :sort<CR>
 "au FilterWritePre * if &diff | colorscheme default | endif
 "highlight DiffAdd cterm=none ctermfg=none ctermbg=Green gui=none guifg=bg guibg=Green
 "highlight DiffDelete cterm=none ctermfg=none ctermbg=Black gui=none guifg=bg guibg=Black
-highlight DiffChange cterm=none ctermfg=none ctermbg=Yellow gui=none guifg=bg guibg=Yellow
-highlight DiffText cterm=none ctermfg=none ctermbg=White gui=none guifg=bg guibg=White
+"highlight DiffChange cterm=none ctermfg=none ctermbg=Yellow gui=none guifg=bg guibg=Yellow
+"highlight DiffText cterm=none ctermfg=none ctermbg=White gui=none guifg=bg guibg=White
 ":highlight! link DiffText MatchParen
 
 function! GetRunningOS()
@@ -27,9 +28,9 @@ endfunction
 let os=GetRunningOS()
 
 execute pathogen#infect()
-let g:syntastic_javascript_checker = 'jshint'
-"let g:syntastic_javascript_jslint_conf = "--white --undef --nomen --regexp --plusplus --bitwise --newcap --sloppy --vars --maxlen 80 --node"
-"let g:syntastic_javascript_jshint_conf = "~/.vim/jshint.conf.json"
+let g:syntastic_javascript_checkers = ['jshint', 'jslint']
+let g:syntastic_javascript_jslint_conf = "--browser --undef --nomen --regexp --plusplus --bitwise --vars --maxlen 80 --indent 2"
+let g:syntastic_javascript_jshint_conf = "~/.vim/jshint.conf.json"
 
 " Default tabs
 set softtabstop=4

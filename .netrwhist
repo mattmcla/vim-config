@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/matt/Workspace/SqorMobile-ios'
-let g:netrw_dirhist_2='/Users/matt/Workspace/SqorMobile-ios/sqormobile'
-let g:netrw_dirhist_3='/Users/matt/Workspace/SqorMobile-ios'
-let g:netrw_dirhist_4='/Users/matt/Workspace/SqorMobile-ios/sqormobile'
-let g:netrw_dirhist_5='/Users/matt/Workspace/SqorMobile-ios/www/css'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/matt/Workspace/orchestrate-bluebird-sandbox/.git'
+let g:netrw_dirhist_2='/Users/matt/.vagrant.d/boxes/ubuntu-VAGRANTSLASH-trusty64/14.04/virtualbox'
+let g:netrw_dirhist_3='/Users/matt'
+let g:netrw_dirhist_4='/Users/matt/Workspace'
+let g:netrw_dirhist_5='/Users/matt/Workspace/konsiderate'
+let g:netrw_dirhist_6='/Users/matt/Workspace/konsiderate/konsiderate-website'
+let g:netrw_dirhist_7='/Users/matt/Workspace/konsiderate/konsiderate-website/app'
