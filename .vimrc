@@ -1,5 +1,6 @@
 syntax on
 set laststatus=2
+set nu
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
@@ -24,6 +25,10 @@ endfunction
 let os=GetRunningOS()
 
 execute pathogen#infect()
+
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open=1
 
 " Scheme
 set background=dark
@@ -101,6 +106,5 @@ set foldmethod=indent
 
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-autocmd FileType javascript nnoremap <leader>ff :%!js-beautify --good-stuff -k -s 2 -w 80 -j -q -f -<CR>
+autocmd FileType javascript noremap <buffer> <c-f> : call JsBeautify()<cr>
 
-let g:syntastic_check_on_open=1
