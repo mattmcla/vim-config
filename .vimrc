@@ -43,7 +43,7 @@ python del powerline_setup
 
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.json set softtabstop=4
+au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.json,*.jade set softtabstop=4
 au BufRead,BufNewFile *.html,*.js set softtabstop=2
 
 " What to use for an indent.
@@ -52,9 +52,9 @@ au BufRead,BufNewFile *.html,*.js set softtabstop=2
 " JavaScript: 4 spaces
 " HTML: 4 spaces
 " C: tabs (pre-existing files) or 4 spaces (new files)
-au BufRead,BufNewFile *.py,*pyw,*.json set shiftwidth=4
+au BufRead,BufNewFile *.py,*pyw,*.json,*.jade set shiftwidth=4
 au BufRead,BufNewFile *.html,*.js set shiftwidth=2
-au BufRead,BufNewFile *.py,*.pyw,*.json,*.js,*.html set expandtab
+au BufRead,BufNewFile *.py,*.pyw,*.json,*.js,*.html,*.jade set expandtab
 fu Select_c_style()
     if search('^\t', 'n', 150)
         set shiftwidth=8
@@ -120,7 +120,8 @@ set autoindent
 " Folding based on indentation: 
 set foldmethod=indent
 
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType javascript nnoremap <leader>ff :%!js-beautify --good-stuff -k -s 2 -w 80 -j -q -f -<CR>
 
+let g:syntastic_check_on_open=1
