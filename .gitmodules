@@ -4,9 +4,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "bundle/vim-colors-solarized"]
-	path = bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/vim-less"]
 	path = bundle/vim-less
 	url = https://github.com/groenewege/vim-less
@@ -16,6 +13,3 @@
 [submodule "bundle/vim-hybrid"]
 	path = bundle/vim-hybrid
 	url = https://github.com/w0ng/vim-hybrid.git
-[submodule "bundle/--f"]
-	path = bundle/--f
-	url = https://github.com/jelera/vim-javascript-syntax.git
