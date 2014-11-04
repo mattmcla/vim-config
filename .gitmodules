@@ -16,3 +16,6 @@
 [submodule "bundle/vim-hybrid"]
 	path = bundle/vim-hybrid
 	url = https://github.com/w0ng/vim-hybrid.git
+[submodule "bundle/--f"]
+	path = bundle/--f
+	url = https://github.com/jelera/vim-javascript-syntax.git
