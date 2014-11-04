@@ -38,6 +38,9 @@ execute pathogen#infect()
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open=1
 
+" Delimitmate
+let delimitMate_expand_cr=1
+
 " Scheme
 "let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
