@@ -1,5 +1,8 @@
+source /Users/matt/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim
 syntax on
 set laststatus=2
+set backspace=2
+set relativenumber
 set nu
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
@@ -26,22 +29,27 @@ let os=GetRunningOS()
 
 execute pathogen#infect()
 
+" Close Tag
+:let g:closetag_html_style=1 
+:source ~/.vim/scripts/closetag.vim 
+
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open=1
 
 " Scheme
-set background=dark
-colorscheme solarized
+"let g:hybrid_use_iTerm_colors = 1
+colorscheme hybrid
+"colorscheme solarized
 
 " Default tabs
 set softtabstop=4
 set shiftwidth=4
 set textwidth=79
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
 
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
