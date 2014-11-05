@@ -46,6 +46,9 @@ let delimitMate_expand_cr=1
 colorscheme hybrid
 "colorscheme solarized
 
+" CtrlP
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'
+
 " Default tabs
 set tabstop=2
 set softtabstop=2
