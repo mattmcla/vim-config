@@ -48,6 +48,9 @@ colorscheme hybrid
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'
+let g:ctrlp_working_path_mode = 'r'
+nmap <leader>p :CtrlP<cr>
+nmap <leader>bb :CtrlPBuffer<cr>
 
 " Default tabs
 set tabstop=2
