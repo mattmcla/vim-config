@@ -1,4 +1,4 @@
-source /Users/matt/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 filetype plugin indent on
 syntax on
 set laststatus=2
@@ -42,7 +42,8 @@ let g:syntastic_check_on_open=1
 let delimitMate_expand_cr=1
 
 " Scheme
-"let g:hybrid_use_iTerm_colors = 1
+let g:hybrid_use_iTerm_colors = 1
+set background=dark
 colorscheme hybrid
 "colorscheme solarized
 
