@@ -4,7 +4,7 @@ syntax on
 set laststatus=2
 set backspace=2
 set relativenumber
-set nu
+set number
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
@@ -42,13 +42,11 @@ let g:syntastic_check_on_open=1
 let delimitMate_expand_cr=1
 
 " Scheme
-let g:hybrid_use_iTerm_colors = 1
 set background=dark
 colorscheme hybrid
-"colorscheme solarized
 
 " CtrlP
-let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules)$'
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules|dist)$'
 let g:ctrlp_working_path_mode = 'r'
 nmap <leader>p :CtrlP<cr>
 nmap <leader>bb :CtrlPBuffer<cr>
@@ -61,10 +59,13 @@ set smarttab
 set expandtab
 set textwidth=80
 
+" Javascript
+" au FileType javascript call JavaScriptFold()
+
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.json,*.jade set softtabstop=4
-au BufRead,BufNewFile *.html,*.js set softtabstop=2
+au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.json set softtabstop=4
+au BufRead,BufNewFile *.html,*.js,*.jade,*.sass set softtabstop=2
 
 " What to use for an indent.
 " This will affect Ctrl-T and 'autoindent'.
@@ -73,7 +74,7 @@ au BufRead,BufNewFile *.html,*.js set softtabstop=2
 " HTML: 4 spaces
 " C: tabs (pre-existing files) or 4 spaces (new files)
 au BufRead,BufNewFile *.py,*pyw,*.json,*.jade set shiftwidth=4
-au BufRead,BufNewFile *.html,*.js set shiftwidth=2
+au BufRead,BufNewFile *.html,*.js,*.jade,*.sass set shiftwidth=2
 fu Select_c_style()
     if search('^\t', 'n', 150)
         set shiftwidth=8
