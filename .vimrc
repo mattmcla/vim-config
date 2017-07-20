@@ -65,7 +65,7 @@ set textwidth=80
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
 au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.json set softtabstop=4
-au BufRead,BufNewFile *.html,*.js,*.jade,*.sass set softtabstop=2
+au BufRead,BufNewFile *.html,*.js,*.jsx,*.jade,*.sass set softtabstop=2
 
 " What to use for an indent.
 " This will affect Ctrl-T and 'autoindent'.
@@ -74,7 +74,7 @@ au BufRead,BufNewFile *.html,*.js,*.jade,*.sass set softtabstop=2
 " HTML: 4 spaces
 " C: tabs (pre-existing files) or 4 spaces (new files)
 au BufRead,BufNewFile *.py,*pyw,*.json,*.jade set shiftwidth=4
-au BufRead,BufNewFile *.html,*.js,*.jade,*.sass set shiftwidth=2
+au BufRead,BufNewFile *.html,*.js,*.jsx,*.jade,*.sass set shiftwidth=2
 fu Select_c_style()
     if search('^\t', 'n', 150)
         set shiftwidth=8
@@ -91,16 +91,16 @@ au BufRead,BufNewFile Makefile* set noexpandtab
 highlight BadWhitespace ctermbg=red guibg=red
 
 " Display tabs at the beginning of a line in Python mode as bad.
-au BufRead,BufNewFile *.js,*.py,*.pyw match BadWhitespace /^\t\+/
+au BufRead,BufNewFile *.js,*.jsx,*.py,*.pyw match BadWhitespace /^\t\+/
 " Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.js,*.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.js,*.jsx,*.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Use UNIX (\n) line endings.
 " Only used for new files so as to not force existing files to change their
 " line endings.
 " Python: yes
 " C: yes
-au BufNewFile *.js,*.py,*.pyw,*.c,*.h set fileformat=unix
+au BufNewFile *.js,*.jsx,*.py,*.pyw,*.c,*.h set fileformat=unix
 
 " Keep indentation level from previous line:
 set autoindent
@@ -108,7 +108,18 @@ set autoindent
 " Folding based on indentation: 
 set foldmethod=indent
 
+" Makefile
+autocmd FileType make setlocal noexpandtab
+
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 autocmd FileType javascript noremap <buffer> <c-f> : call JsBeautify()<cr>
 
+autocmd FileType go nmap ge :GoErrCheck<CR>
+autocmd FileType go nmap gl :GoLint<CR>
+autocmd FileType go nmap gt :GoTest<CR>
+" eslint
+let g:syntastic_javascript_checkers = ['eslint']
+
+" vim-go and syntastic
+let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
