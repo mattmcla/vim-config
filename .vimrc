@@ -4,7 +4,7 @@ syntax on
 set laststatus=2
 set backspace=2
 set relativenumber
-set nu
+set number
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
@@ -42,9 +42,8 @@ let g:syntastic_check_on_open=1
 let delimitMate_expand_cr=1
 
 " Scheme
-"let g:hybrid_use_iTerm_colors = 1
+set background=dark
 colorscheme hybrid
-"colorscheme solarized
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|node_modules|dist)$'
@@ -60,10 +59,13 @@ set smarttab
 set expandtab
 set textwidth=80
 
+" Javascript
+" au FileType javascript call JavaScriptFold()
+
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.json,*.jade set softtabstop=4
-au BufRead,BufNewFile *.html,*.js,*.jsx,*.json,*.jade set softtabstop=2
+au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.json set softtabstop=4
+au BufRead,BufNewFile *.html,*.js,*.jsx,*.jade,*.sass set softtabstop=2
 
 " What to use for an indent.
 " This will affect Ctrl-T and 'autoindent'.
@@ -109,6 +111,9 @@ set foldmethod=indent
 " eslint
 let g:syntastic_javascript_checkers = ['eslint']
 
+" Makefile
+autocmd FileType make setlocal noexpandtab
+
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 autocmd FileType javascript noremap <buffer> <c-f> : call JsBeautify()<cr>
@@ -123,5 +128,8 @@ let g:go_highlight_build_constraints = 1
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
-autocmd FileType go nmap gl :GoLint<cr> 
-autocmd FileType go nmap ge :GoErrCheck<cr> 
+autocmd FileType go nmap ge :GoErrCheck<CR>
+autocmd FileType go nmap gl :GoLint<CR>
+autocmd FileType go nmap gt :GoTest<CR>
+" eslint
+let g:syntastic_javascript_checkers = ['eslint']
