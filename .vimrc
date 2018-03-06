@@ -1,4 +1,8 @@
-source /Users/matt/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim
+" source /Users/mattm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
 filetype plugin indent on
 syntax on
 set laststatus=2
@@ -35,8 +39,14 @@ execute pathogen#infect()
 :source ~/.vim/scripts/closetag.vim 
 
 " Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open=1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Delimitmate
 let delimitMate_expand_cr=1
@@ -110,6 +120,7 @@ set foldmethod=indent
 
 " eslint
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " Makefile
 autocmd FileType make setlocal noexpandtab
@@ -131,5 +142,18 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 autocmd FileType go nmap ge :GoErrCheck<CR>
 autocmd FileType go nmap gl :GoLint<CR>
 autocmd FileType go nmap gt :GoTest<CR>
-" eslint
-let g:syntastic_javascript_checkers = ['eslint']
+
+" Powerline
+set showtabline=2
+" This allows buffers to be hidden if you've modified a buffer.
+set hidden
+" To open a new empty buffer
+nmap <leader>T :enew<cr>
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+" Close the current buffer and move to the previous one
+nmap <leader>bq :bp <BAR> bd #<CR>
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
