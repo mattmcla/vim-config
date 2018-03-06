@@ -109,6 +109,11 @@ set autoindent
 set foldmethod=indent
 
 " eslint
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\ }
+let g:ale_javascript_eslint_executable = 'eslint_d'
+let g:ale_javascript_eslint_use_global = 1
 
 " Makefile
 autocmd FileType make setlocal noexpandtab
