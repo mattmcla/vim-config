@@ -38,16 +38,6 @@ execute pathogen#infect()
 :let g:closetag_html_style=1 
 :source ~/.vim/scripts/closetag.vim 
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 " Delimitmate
 let delimitMate_expand_cr=1
 
@@ -119,8 +109,6 @@ set autoindent
 set foldmethod=indent
 
 " eslint
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " Makefile
 autocmd FileType make setlocal noexpandtab
@@ -135,9 +123,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
-let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 autocmd FileType go nmap ge :GoErrCheck<CR>
 autocmd FileType go nmap gl :GoLint<CR>
