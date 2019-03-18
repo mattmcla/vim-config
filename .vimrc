@@ -1,7 +1,8 @@
 " source /Users/mattm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
+set  rtp+=/Users/mattm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
 
 filetype plugin indent on
 syntax on
@@ -38,16 +39,6 @@ execute pathogen#infect()
 :let g:closetag_html_style=1 
 :source ~/.vim/scripts/closetag.vim 
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 " Delimitmate
 let delimitMate_expand_cr=1
 
@@ -68,9 +59,6 @@ set shiftwidth=2
 set smarttab
 set expandtab
 set textwidth=80
-
-" Javascript
-" au FileType javascript call JavaScriptFold()
 
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
@@ -118,9 +106,19 @@ set autoindent
 " Folding based on indentation: 
 set foldmethod=indent
 
+" Javascript
+let g:javascript_plugin_jsdoc = 1
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
+
 " eslint
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\ }
+let g:ale_javascript_eslint_executable = 'eslint_d'
+let g:ale_javascript_eslint_use_global = 1
 
 " Makefile
 autocmd FileType make setlocal noexpandtab
@@ -135,9 +133,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
-let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 autocmd FileType go nmap ge :GoErrCheck<CR>
 autocmd FileType go nmap gl :GoLint<CR>
