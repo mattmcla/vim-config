@@ -1,7 +1,8 @@
 " source /Users/mattm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
+set  rtp+=/Users/mattm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
 
 filetype plugin indent on
 syntax on
@@ -59,9 +60,6 @@ set smarttab
 set expandtab
 set textwidth=80
 
-" Javascript
-" au FileType javascript call JavaScriptFold()
-
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
 au BufRead,BufNewFile *py,*pyw,*.c,*.h,*.json set softtabstop=4
@@ -107,6 +105,13 @@ set autoindent
 
 " Folding based on indentation: 
 set foldmethod=indent
+
+" Javascript
+let g:javascript_plugin_jsdoc = 1
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
 
 " eslint
 let g:ale_linters = {

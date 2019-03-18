@@ -31,3 +31,6 @@
 [submodule "/Users/mattm/.vim/pack/git-plugins/start/ale"]
 	path = /Users/mattm/.vim/pack/git-plugins/start/ale
 	url = https://github.com/w0rp/ale.git
+[submodule "/Users/mattm/.vim/bundle/vim-javascript"]
+	path = /Users/mattm/.vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
