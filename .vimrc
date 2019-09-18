@@ -116,7 +116,10 @@ augroup END
 " eslint
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'typescript': ['eslint', 'tsserver'],
 \ }
+let g:ale_typescript_eslint_executable = 'eslint_d'
+let g:ale_typescript_eslint_use_global = 1
 let g:ale_javascript_eslint_executable = 'eslint_d'
 let g:ale_javascript_eslint_use_global = 1
 
