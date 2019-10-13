@@ -2,7 +2,7 @@
 "python from powerline.vim import setup as powerline_setup
 "python powerline_setup()
 "python del powerline_setup
-set  rtp+=/Users/mattm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
+set  rtp+=/Users/matt/Library/Python/3.7/lib/python/site-packages/powerline/bindings/vim
 
 filetype plugin indent on
 syntax on
@@ -125,10 +125,6 @@ let g:ale_javascript_eslint_use_global = 1
 
 " Makefile
 autocmd FileType make setlocal noexpandtab
-
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-autocmd FileType javascript noremap <buffer> <c-f> : call JsBeautify()<cr>
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
