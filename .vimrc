@@ -117,6 +117,10 @@ augroup END
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint', 'tsserver'],
+\   'go': ['golangci_lint', 'golint', 'gofmt', 'govet']
+\ }
+let g:ale_fixers = {
+\   'go': ['gofmt', 'goimports'],
 \ }
 let g:ale_typescript_eslint_executable = 'eslint_d'
 let g:ale_typescript_eslint_use_global = 1
@@ -125,17 +129,6 @@ let g:ale_javascript_eslint_use_global = 1
 
 " Makefile
 autocmd FileType make setlocal noexpandtab
-
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
-autocmd FileType go nmap ge :GoErrCheck<CR>
-autocmd FileType go nmap gl :GoLint<CR>
-autocmd FileType go nmap gt :GoTest<CR>
 
 " Powerline
 set showtabline=2
