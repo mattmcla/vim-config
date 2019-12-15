@@ -1,7 +1,3 @@
-" source /Users/mattm/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
 set  rtp+=/Users/matt/Library/Python/3.7/lib/python/site-packages/powerline/bindings/vim
 
 filetype plugin indent on
@@ -117,10 +113,12 @@ augroup END
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint', 'tsserver'],
-\   'go': ['golangci_lint', 'golint', 'gofmt', 'govet']
+\   'go': ['golangci_lint', 'golint', 'gofmt', 'govet'],
+\   'python': ['pyflakes', 'pydocstyle'],
 \ }
 let g:ale_fixers = {
 \   'go': ['gofmt', 'goimports'],
+\   'python': ['isort', 'black'],
 \ }
 let g:ale_typescript_eslint_executable = 'eslint_d'
 let g:ale_typescript_eslint_use_global = 1
