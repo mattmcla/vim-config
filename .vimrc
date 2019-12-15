@@ -113,7 +113,7 @@ augroup END
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint', 'tsserver'],
-\   'python': ['pyflakes', 'pydocstyle'],
+\   'python': ['pyflakes', 'pydocstyle', 'flake8'],
 \ }
 let g:ale_fixers = {
 \   'python': ['isort', 'black'],
