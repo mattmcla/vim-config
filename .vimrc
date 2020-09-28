@@ -2,6 +2,7 @@ set  rtp+=/Users/matt/Library/Python/3.7/lib/python/site-packages/powerline/bind
 
 filetype plugin indent on
 syntax on
+set directory=~/tmp,/var/tmp,/tmp
 set laststatus=2
 set backspace=2
 set relativenumber
@@ -30,6 +31,9 @@ endfunction
 let os=GetRunningOS()
 
 execute pathogen#infect()
+
+" Turn Spellcheck on
+set spell spelllang=en_us
 
 " Close Tag
 :let g:closetag_html_style=1 
@@ -109,14 +113,20 @@ augroup javascript_folding
     au FileType javascript setlocal foldmethod=syntax
 augroup END
 
-" eslint
+" ALE
+let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
+
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint', 'tsserver'],
 \   'python': ['pyflakes', 'pydocstyle', 'flake8'],
 \   'go': ['golangci_lint', 'golint', 'gofmt', 'govet'],
 \ }
+
 let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier', 'tslint'],
+\   'less': ['prettier'],
 \   'go': ['gofmt', 'goimports'],
 \   'python': ['isort', 'black'],
 \ }
@@ -142,3 +152,6 @@ nmap <leader>h :bprevious<CR>
 nmap <leader>bq :bp <BAR> bd #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
