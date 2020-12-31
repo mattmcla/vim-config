@@ -121,11 +121,13 @@ let g:ale_linters = {
 \   'typescript': ['eslint', 'tsserver'],
 \   'python': ['pyflakes', 'pydocstyle', 'flake8'],
 \   'go': ['golangci_lint', 'golint', 'gofmt', 'govet'],
+\   'graphql': ['gqlint'],
 \ }
 
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier', 'tslint'],
+\   'typescriptreact': ['prettier', 'tslint'],
 \   'less': ['prettier'],
 \   'go': ['gofmt', 'goimports'],
 \   'python': ['isort', 'black'],
