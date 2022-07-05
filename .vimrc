@@ -125,12 +125,14 @@ let g:ale_linters = {
 \ }
 
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier', 'tslint'],
-\   'typescriptreact': ['prettier', 'tslint'],
-\   'less': ['prettier'],
 \   'go': ['gofmt', 'goimports'],
+\   'javascript': ['eslint', 'prettier'],
+\   'json': ['jq'],
+\   'less': ['prettier'],
 \   'python': ['isort', 'black'],
+\   'typescript': ['prettier', 'tslint', 'eslint'],
+\   'typescriptreact': ['prettier', 'tslint', 'eslint'],
+\   'xml': ['xmllint'],
 \ }
 let g:ale_typescript_eslint_executable = 'eslint_d'
 let g:ale_typescript_eslint_use_global = 1

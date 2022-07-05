@@ -49,3 +49,6 @@
 [submodule "bundle/vim-go"]
 	path = bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule "pack/jparise/start/graphql"]
+	path = pack/jparise/start/graphql
+	url = https://github.com/jparise/vim-graphql.git
